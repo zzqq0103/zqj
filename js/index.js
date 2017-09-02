@@ -1,11 +1,11 @@
 // 用户的唯一表示 openId，用userId字段进行存储下来
 var userId;
 $(function (){
-    var screenWidth = $(window).width();
-    var screenHeight = $(window).height();
-    $(".container").css("width", screenWidth);
-    $(".container").css("height", screenHeight);
-    console.log(`宽：${screenWidth}，高：${screenWidth}`);
+    // var screenWidth = $(window).width();
+    // var screenHeight = $(window).height();
+    // $(".container").css("width", screenWidth);
+    // $(".container").css("height", screenHeight);
+    // console.log(`宽：${screenWidth}，高：${screenWidth}`);
     var code = findCodePara();
     // 微信重定向返回同页面的时刻，需要进行一下url后面带有的search字段的处理。
     if(code){
@@ -14,7 +14,7 @@ $(function (){
         // 加载数据格式
         load();
     }
-    if(!(type(localStorage.getItem("zqj_openId")) === 'string')){
+    if(!(typeof(localStorage.getItem("zqj_openId")) === 'string')){
         // 如果用户清空了微信的所有保持数据，则重新拉取网页授，获取用户信息
         getwechatcode();
     }else{

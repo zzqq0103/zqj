@@ -1,8 +1,47 @@
+html,body,.container{
+    margin: 0;
+    width:100%;
+    height:100%;
+}
 #container-bg{
-    position: relative;
-    background-image: url("../img/bg.jpg");
-    background-repeat: no-repeat;
-    background-position: center center;
-    -webkit-background-size:cover;
-    background-size:cover;
+    background: url(../img/zqj.jpg) center no-repeat;
+    background-size: cover;
+}
+#content{
+    position:absolute;
+    width:100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+#content-righttop{
+    float:right;
+    margin:20px 10px 0 0;
+}
+
+#content-middle{
+    margin-top:220px;
+}
+
+#middle-img img{
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+}
+#content-middle h5{
+    margin-top:5px;
+    font-size:15px;
+    color:#ffffff;
+}
+
+#content-middle p{
+    margin-top:5px;
+    font-size:15px;
+    color:#ffffff;
+}
+
+#content-footer-btn{
+    margin-bottom:30px;
+    font-size: 25px;
 }
