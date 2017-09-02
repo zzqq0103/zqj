@@ -3,47 +3,51 @@
 <head>
 	<!-- 页面编码模式 -->
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<!--safari私有meta标签，它表示：允许全屏模式浏览-->
-	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="yes" name="apple-mobile-web-app-capable"/>
 	<!--iphone的私有标签，它指定的iphone中safari顶端的状态条的样式-->
 	<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>中秋节快乐</title>
-
 	<!-- 引用BootStrap框架 样式文件 -->
-	<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
 	<!-- 引用外部样式文件  index.css -->
 	<link href="css/index.css" rel="stylesheet">
 </head>
+<!-- 自加载函数 load（） -->
 <body>
-	<div>
-		<!-- 头部区 -->
-		<header>
-		</header>
 
-		<!-- 内容展示区 -->
-		<div class="main">
-		        <div class="container">
-		            <div class="row">
-		                <div class="col-md-offset-3 col-xd-6">
-		                    <h3 class="progress-title">当前能量值：</h3>
-		                    <div class="progress">
-		                        <div class="progress-bar" style="width:30%; background:#f2545b;">
-		                            <div class="progress-value">30%</div>
-		                        </div>
-		                    </div>
-		                </div>
-		            </div>
-		        </div>
-			</div>
-		</div>
-		
-	</div>
-	
-	<!-- 底部加载 zepto.js -->
-	<script src="js/zepto.js"></script>
-	<!-- 加载主页面 index.js 文件 -->
-	<script src="js/index.js"></script>
+    <div class="container">
+        <!-- 背景图-->
+        <div id="container-bg">
+
+        </div>
+        <!--中区 图片和两行字的位置-->
+        <div id="middleContent">
+            <img />
+            <p> </p>
+            <p> </p>
+        </div>
+
+        <!--“立即开始” 按钮-->
+        <div id="footer">
+
+        </div>
+
+    </div>
+
+
+	<!-- 底部加载 jquery.js -->
+	<script src="js/jquery-2.1.4.min.js"></script>
+
+    <!-- 加载BootStrap.js文件-->
+    <!--<script src="js/bootstrap.js"></script>-->
+
+	<!--微信js SDK-->
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+
+    <!-- 加载主页面 index.js 文件 -->
+    <script src="js/index.js"></script>
 
 </body>
 </html>
