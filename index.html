@@ -1,54 +1,63 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-	<!-- 页面编码模式 -->
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-	<!--safari私有meta标签，它表示：允许全屏模式浏览-->
-	<meta content="yes" name="apple-mobile-web-app-capable"/>
-	<!--iphone的私有标签，它指定的iphone中safari顶端的状态条的样式-->
-	<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
-	<title>中秋节快乐</title>
-	<!-- 引用BootStrap框架 样式文件 -->
-	<!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
-	<!-- 引用外部样式文件  index.css -->
-	<link href="css/index.css" rel="stylesheet">
+    <!-- 页面编码模式 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <!--safari私有meta标签，它表示：允许全屏模式浏览-->
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <!--iphone的私有标签，它指定的iphone中safari顶端的状态条的样式-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <title>中秋节快乐</title>
+    <!--<link rel="stylesheet" href="css/lib/swiper.min.css">-->
+    <!-- 引用外部样式文件  index.css -->
+    <link href="css/index.css" rel="stylesheet">
 </head>
-<!-- 自加载函数 load（） -->
+
 <body>
-        <!-- 背景图-->
-        <div class="container" id="container-bg">
-            <!--<div id="content">-->
-                <!--&lt;!&ndash;右上方的玩法介绍&ndash;&gt;-->
-                <!--<div id="content-righttop">-->
+    <!-- 背景 div-->
+    <div class="container" id="container-bg">
 
-                <!--</div>-->
-
-                <!--&lt;!&ndash;中区 图片和两行字的位置&ndash;&gt;-->
-                <!--<div id="content-middle">-->
-                    <!--<div id="middle-img">-->
-                        <!--<img src="img/avatar.jpeg" />-->
-                    <!--</div>-->
-                    <!--<h5>邀请人：张强</h5>-->
-                    <!--<p>中秋节快乐</p>-->
-                <!--</div>-->
-
-                <!--&lt;!&ndash;“立即开始” 按钮&ndash;&gt;-->
-                <!--<button id="content-footer-btn">立即开始</button>-->
-            <!--</div>-->
+        <div class="content">
+            <div class="image-avatar">
+                <img src="img/avatar.jpeg"/>
+            </div>
+            <p class="name">好友 张强 <br/> 邀请您进入游戏！</p>
+            <!--<p class="info-invite"></p>-->
         </div>
 
-	<!-- 底部加载 jquery.js -->
-	<script src="js/jquery-2.1.4.min.js"></script>
+        <!--<div class="button-div">-->
+            <!--<img src="img/hbtn.png"/>-->
+        <!--</div>-->
 
-    <!-- 加载BootStrap.js文件-->
-    <!--<script src="js/bootstrap.js"></script>-->
 
-	<!--微信js SDK-->
-	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+        <!-- audio -->
+        <div class="rotate audio">
+            <audio src="audio/001.mp3" id="media" autoplay loop preload></audio>
+        </div>
 
+        <!--游戏介绍-->
+        <div class="intro">
+            <img src="img/intro.svg"/>
+            <span>介绍</span>
+        </div>
+    </div>
+
+
+
+    <!-- 底部加载 jquery.js -->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <!--<script src="js/lib/swiper.min.js"></script>-->
+    <!--微信js SDK-->
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <!-- 加载主页面 index.js 文件 -->
-    <!--<script src="js/index.js"></script>-->
-
+    <script src="js/index.js"></script>
+    <!--<script>-->
+        <!--var mySwiper = new Swiper('.swiper-container', {-->
+            <!--direction: 'vertical',-->
+            <!--loop: true,-->
+        <!--})-->
+    <!--</script>-->
 </body>
+
 </html>
