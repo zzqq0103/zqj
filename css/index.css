@@ -48,9 +48,50 @@ html,body,.container{
     color:#ffffff;
 }
 
-.button-div{
-    margin-top:40px;
-    background-size: contain;
+#energe{
+    position: absolute;
+    top:33%;
+    left: 14px;
+    width:100px;
+    height: 25px;
+    font-size:15px;
+    color:yellow;
+}
+
+#jqmeter-container{
+    position: absolute;
+    top:35%;
+    left: 20px;
+}
+
+#btn{
+    position: absolute;
+    display: block;
+    bottom: 3%;
+    left: 40%;
+    padding: 5px 5px;
+    width: 86px;
+    font-size: 16px;
+}
+
+#btn-zhuli{
+    position: absolute;
+    display: block;
+    bottom:3%;
+    left: 10%;
+    padding: 5px 5px;
+    width: 86px;
+    font-size: 16px;
+}
+
+#btn-start{
+    position: absolute;
+    display: block;
+    bottom:3%;
+    right: 10%;
+    padding: 5px 5px;
+    width: 86px;
+    font-size: 16px;
 }
 
 .audio{

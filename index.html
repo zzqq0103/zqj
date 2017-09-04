@@ -3,14 +3,13 @@
 <head>
     <!-- 页面编码模式 -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0" />
     <!--safari私有meta标签，它表示：允许全屏模式浏览-->
     <meta content="yes" name="apple-mobile-web-app-capable" />
     <!--iphone的私有标签，它指定的iphone中safari顶端的状态条的样式-->
     <meta content="black" name="apple-mobile-web-app-status-bar-style" />
     <title>中秋节快乐</title>
-    <!--<link rel="stylesheet" href="css/lib/swiper.min.css">-->
-    <!-- 引用外部样式文件  index.css -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/jquery-weui/1.0.1/css/jquery-weui.min.css">
     <link href="css/index.css" rel="stylesheet">
 </head>
 
@@ -26,11 +25,6 @@
             <!--<p class="info-invite"></p>-->
         </div>
 
-        <!--<div class="button-div">-->
-            <!--<img src="img/hbtn.png"/>-->
-        <!--</div>-->
-
-
         <!-- audio -->
         <div class="rotate audio">
             <audio src="audio/001.mp3" id="media" autoplay loop preload></audio>
@@ -41,23 +35,15 @@
             <img src="img/intro.svg"/>
             <span>介绍</span>
         </div>
+
+        <button type="button" id="btn">立即游戏</button>
+
     </div>
 
-
-
-    <!-- 底部加载 jquery.js -->
     <script src="js/jquery-2.1.4.min.js"></script>
-    <!--<script src="js/lib/swiper.min.js"></script>-->
-    <!--微信js SDK-->
     <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-    <!-- 加载主页面 index.js 文件 -->
+    <script src="//cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>
     <script src="js/index.js"></script>
-    <!--<script>-->
-        <!--var mySwiper = new Swiper('.swiper-container', {-->
-            <!--direction: 'vertical',-->
-            <!--loop: true,-->
-        <!--})-->
-    <!--</script>-->
 </body>
 
 </html>

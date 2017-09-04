@@ -3,6 +3,18 @@
  * 中秋节项目页面 内容页js内容
  */
 
+// 进度条的初始化
+ $(function() {
+    $('#jqmeter-container').jQMeter({
+        goal:'1,000',
+        raised:'200',
+        orientation:'vertical',
+        width:'36px',
+        height:'150px',
+        barColor: 'rgb(255, 26, 26)',
+        displayTotal: true
+    });
+ })
 
 // 配置微信的JDK接口调用，返回值为对象，时间戳信息等等
 function config_wechatJDK(){
@@ -18,7 +30,6 @@ function config_wechatJDK(){
     })
     return config;
 }
-
 
 $(function(){
     var configData = config_wechatJDK();
@@ -70,7 +81,7 @@ wx.onMenuShareAppMessage({
 
 // 分享到QQ
 wx.onMenuShareQQ({
-    title: '', // 分享标题
+    title: '', // 分享标
     desc: '', // 分享描述
     link: '', // 分享链接
     imgUrl: '', // 分享图标
@@ -95,4 +106,32 @@ wx.onMenuShareWeibo({
         // 用户取消分享后执行的回调函数
     }
 });
+
+// 存储用户的openId 
+var userId;
+function  load() {  
+    var url = location.href();
+}
+
+// 立即签到
+function addEnergy(){
+
+}
+
+// 获取用户信息
+function getUserInfo() {
+    
+}
+
+
+// 中奖查询
+function queryPrize(){
+
+}
+
+// 中奖人手机号码的存储 和 修改
+function phoneSave() {
+    
+}
+
 
