@@ -1,76 +1,155 @@
-*{
-    margin: 0 auto;
+
+/* new css  */
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
-
-/* 能量值进度条部分开始 */
-.progress-title{
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-    margin: 0 0 20px;
-}
-.progress{
-    height: 8px;
-    background: #333;
-    border-radius: 0;
-    box-shadow: none;
-    margin-bottom: 30px;
-    overflow: visible;
-}
-.progress .progress-bar{
+html,body,.container{
     position: relative;
-    -webkit-animation: animate-positive 2s;
-    animation: animate-positive 2s;
+    margin: 0;
+    width:100%;
+    height:100%;
 }
-.progress .progress-bar:after{
-    content: "";
-    display: inline-block;
-    width: 9px;
-    background: #fff;
+
+
+#container-bg {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../img/bg-tree.jpg);
+    background-size: contain;
+    /*background-attachment: fixed;*/
+}
+
+.content{
+    position:absolute;
+    top: 34%;
+    left: 35%;
+    /*padding: 20px;*/
+    text-align: center;
+}
+
+.image-avatar {
+    margin-top: 20px;
+}
+
+.image-avatar img{
+    width: 80px;
+    height: 80px;
+    border-radius: 60px;
+}
+
+.name{
+    margin-top:20px;
+    font-size:15px;
+    line-height: 25px;
+    color:#ffffff;
+}
+
+.button-div{
+    margin-top:40px;
+    background-size: contain;
+}
+
+.audio{
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+.audio{
+    z-index: 10;
+    position: absolute
+}
+
+.audio {
+    left: 20px;
+    top: 6%;
+    width: 30px;
+    height: 30px;
+    background-image: url(../images/normalmusic.svg)
+}
+
+.rotate {
+    -webkit-animation: rotating 1.2s linear infinite;
+    animation: rotating 1.2s linear infinite
+}
+
+.intro{
     position: absolute;
-    top: -10px;
-    bottom: -10px;
-    right: -1px;
-    z-index: 1;
-    transform: rotate(35deg);
+    right:20px;
+    top:6%;
 }
-.progress .progress-value{
+
+.intro img{
+    width: 30px;
+    height: 30px;
+}
+
+.intro span{
     display: block;
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-    position: absolute;
-    top: -30px;
-    right: -25px;
-}
-@-webkit-keyframes animate-positive{
-    0%{ width: 0; }
-}
-@keyframes animate-positive {
-    0%{ width: 0; }
+    font-size: 10px;
+    color:#fff;
+    text-align: center;
 }
 
-/* 能量值进度条结束 */
+@-webkit-keyframes rotating {
+    from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes rotating {
+    from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
 
 
+@media screen and (max-height: 580px) {
+    .content{
+        position:absolute;
+        top: 33%;
+        left: 33%;
+        /*padding: 20px;*/
+        text-align: center;
+    }
+}
 
-/* 树形图片的样式开始 */
+@media screen and (max-height: 510px) {
+    .content{
+        position:absolute;
+        top: 34%;
+        left: 32%;
+        /*padding: 20px;*/
+        text-align: center;
+    }
 
+    .image-avatar {
+        margin-top: 20px;
+    }
 
+    .image-avatar img{
+        width: 60px;
+        height: 60px;
+        border-radius: 60px;
+    }
 
-/* 树形图片的样式结束 */
-
-
-/* 右下角 “中奖查询” 按钮样式开始 */
-
-
-/* 右下角 “中奖查询” 按钮样式结束 */
-
-
-/* 左下角 “签到” 按钮样式开始 */
-
-
-/* 左下角 “签到” 按钮样式结束 */
-
-
+    .name{
+        margin-top:17px;
+        font-size:15px;
+        line-height: 25px;
+        color:#ffffff;
+    }
+}

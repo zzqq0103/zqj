@@ -1,62 +1,63 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-	<!-- 页面编码模式 -->
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<!--safari私有meta标签，它表示：允许全屏模式浏览-->
-	<meta content="yes" name="apple-mobile-web-app-capable" />
-	<!--iphone的私有标签，它指定的iphone中safari顶端的状态条的样式-->
-	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>中秋节快乐</title>
-	<!-- 引用BootStrap框架 样式文件 -->
-	<link href="css/bootstrap.css" rel="stylesheet">
-	<!-- 引用外部样式文件  index.css -->
-	<link href="css/index.css" rel="stylesheet">
+    <!-- 页面编码模式 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <!--safari私有meta标签，它表示：允许全屏模式浏览-->
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <!--iphone的私有标签，它指定的iphone中safari顶端的状态条的样式-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <title>中秋节快乐</title>
+    <!--<link rel="stylesheet" href="css/lib/swiper.min.css">-->
+    <!-- 引用外部样式文件  index.css -->
+    <link href="css/index.css" rel="stylesheet">
 </head>
 
 <body>
-	<!-- 类container-fluid是用于 100% 宽度，占据全部视口（viewport）的容器  -->
-	<header class="container"></header>
+    <!-- 背景 div-->
+    <div class="container" id="container-bg">
+
+        <div class="content">
+            <div class="image-avatar">
+                <img src="img/avatar.jpeg"/>
+            </div>
+            <p class="name">好友 张强 <br/> 邀请您进入游戏！</p>
+            <!--<p class="info-invite"></p>-->
+        </div>
+
+        <!--<div class="button-div">-->
+            <!--<img src="img/hbtn.png"/>-->
+        <!--</div>-->
 
 
-	<div class="container">
-		<!-- 设置"row"属性 -->
-		<div class="row">
-			<div class="col-xs-3">
-				<span>能量值：</span>
-			</div>
-			<div class="col-xs-7 progress">
-				<div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0"
-				    aria-valuemax="100" style="width: 90%">
-					<span class="sr-only">80% Complete (danger)</span>
-				</div>
-			</div>
-			<div class="col-xs-2">
-				<span>90%</span>
-			</div>
-		</div>
+        <!-- audio -->
+        <div class="rotate audio">
+            <audio src="audio/001.mp3" id="media" autoplay loop preload></audio>
+        </div>
 
-		<!-- 左下角 “签到” 按钮 -->
-		<div class="container signin">
+        <!--游戏介绍-->
+        <div class="intro">
+            <img src="img/intro.svg"/>
+            <span>介绍</span>
+        </div>
+    </div>
 
-		</div>
 
-		<!-- 右下角 “中奖情况查询” 按钮，点击弹出弹框的模式 -->
-		<div class="container prize">
 
-		</div>
-	</div>
-
-	<!-- 底部加载 zepto.js -->
-	<script src="js/zepto.js"></script>
-	<!-- 引入BootStarp框架js文件 -->
-	<script src="js/bootstrap.js"></script>
-	<!-- 加载主页面 index.js 文件 -->
-	<script src="js/index.js"></script>
-
+    <!-- 底部加载 jquery.js -->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <!--<script src="js/lib/swiper.min.js"></script>-->
+    <!--微信js SDK-->
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <!-- 加载主页面 index.js 文件 -->
+    <script src="js/index.js"></script>
+    <!--<script>-->
+        <!--var mySwiper = new Swiper('.swiper-container', {-->
+            <!--direction: 'vertical',-->
+            <!--loop: true,-->
+        <!--})-->
+    <!--</script>-->
 </body>
 
 </html>
