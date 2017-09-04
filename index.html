@@ -11,9 +11,10 @@
     <title>中秋节快乐</title>
     <link rel="stylesheet" href="//cdn.bootcss.com/jquery-weui/1.0.1/css/jquery-weui.min.css">
     <link href="css/index.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="load()">
     <!-- 背景 div-->
     <div class="container" id="container-bg">
 
@@ -27,6 +28,41 @@
         <!-- audio -->
         <div class="rotate audio">
             <audio src="audio/bg-music.mp3" id="media" autoplay loop preload></audio>
+        </div>
+
+        <div id="tab-box" style="display:block;">
+            <div class="tabs">
+                <input type="radio" id="tab1" name="tab-control" checked>
+                <input type="radio" id="tab2" name="tab-control">
+                <div id="tab-close" style="float:right;padding:10px 20px 0 0;>关闭</div>
+                <ul>
+                    <li title="Features">
+                        <label for="tab1" role="button">
+                            <span>游戏介绍</span>
+                        </label>
+                    </li>
+                    <li title="Delivery Contents">
+                        <label for="tab2" role="button">
+                            <span>我的奖品</span>
+                        </label></li>
+                </ul>
+                <div class="content">
+                    <section>
+                        <div>
+                            游戏介绍
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            您暂时还未中奖！
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div>
+
+            </div>
         </div>
 
         <!--游戏介绍-->

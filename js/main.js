@@ -45,6 +45,9 @@
              displayTotal: false
          });
      }
+     // 获取用户信息
+     var user_info = localStorage.getItem("userinfo");
+
 
 
  })
@@ -112,39 +115,14 @@ wx.onMenuShareAppMessage({
     }
 });
 
-// 分享到QQ
-wx.onMenuShareQQ({
-    title: '', // 分享标
-    desc: '', // 分享描述
-    link: '', // 分享链接
-    imgUrl: '', // 分享图标
-    success: function () {
-        // 用户确认分享后执行的回调函数
-    },
-    cancel: function () {
-        // 用户取消分享后执行的回调函数
-    }
-});
 
-// 分享到QQ微博
-wx.onMenuShareWeibo({
-    title: '', // 分享标题
-    desc: '', // 分享描述
-    link: '', // 分享链接
-    imgUrl: '', // 分享图标
-    success: function () {
-        // 用户确认分享后执行的回调函数
-    },
-    cancel: function () {
-        // 用户取消分享后执行的回调函数
-    }
-});
 
 // 存储用户的openId 
 var userId;
 function  load() {  
-    var url = location.href();
+    var code = checkCode();
 }
+
 
 // 立即签到
 function addEnergy(){
