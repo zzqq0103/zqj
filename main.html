@@ -9,13 +9,34 @@
     <!--iphone的私有标签，它指定的iphone中safari顶端的状态条的样式-->
     <meta content="black" name="apple-mobile-web-app-status-bar-style" />
     <title>中秋节快乐</title>
-    <link rel="stylesheet" href="//cdn.bootcss.com/jquery-weui/1.0.1/css/jquery-weui.min.css">
     <link href="css/index.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body onload="load()">
     <!-- 背景 div-->
     <div class="container" id="container-bg">
+
+
+        <div class="box">
+            <div id="dialogBg"></div>
+            <div id="dialog" class="animated">
+                <img class="dialogIco" width="50" height="50" src="img/ico.png" alt="" />
+                <div class="dialogTop">
+                    <a href="javascript:;" class="claseDialogBtn">关闭</a>
+                </div>
+                <form action="" method="post" id="editForm">
+                    <ul class="editInfos">
+                        <li><label><font color="#ff0000">* </font>姓名：<input type="text" name="" required value="" class="ipt" /></label></li>
+                        <li><label><font color="#ff0000">* </font>手机：<input type="text" name="" required value="" class="ipt" /></label></li>
+                        <li id="tijiao">
+                            <input type="submit" value="提交号码" class="submitBtn"/>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
 
         <!-- audio -->
         <div class="rotate audio">
@@ -25,26 +46,72 @@
         <!--游戏介绍-->
         <div class="intro">
             <img src="img/intro.svg"/>
-            <span>介绍</span>
+            <span>游戏介绍</span>
+        </div>
+
+        <div id="tab-box" style="display:block;">
+            <div class="tabs">
+                <input type="radio" id="tab1" name="tab-control" checked>
+                <input type="radio" id="tab2" name="tab-control">
+                <div id="tab-close" style="float:right;padding-right:10px;padding-top:10px;">关闭</div>
+                <ul>
+                    <li title="Features">
+                        <label for="tab1" role="button">
+                            <span>游戏介绍</span>
+                        </label>
+                    </li>
+                    <li title="Delivery Contents">
+                        <label for="tab2" role="button">
+                            <span>我的奖品</span>
+                        </label>
+                    </li>
+                </ul>
+                <div class="content">
+                    <section>
+                        <div>
+                            <p style="margin-left:20px; color:red">活动奖品</p>
+                            <p style="margin-left:25px;">一等奖: 价值100元礼包<br/>二等奖: 价值50元礼包<br/>三等奖: 价值10元礼包</p>
+
+                            <p style="margin-left:20px; color:red">活动时间</p>
+                            <p style="margin-left:25px;">2017年9月1号 -- 2017年9月30号</p>
+
+                            <p style="margin-left:20px; color:red">主办单位</p>
+                            <p style="margin-left:25px;">本次活动由XXX公司赞助，一切权利归XXX公司说明！</p>
+
+                            <p style="margin-left:20px; color:red">兑奖说明</p>
+                            <p style="margin-left:25px;">每人每天只可签到一次，在活动期间，能量值达到100的前200名<br/>用户可以获取XXX精美商品一份。</p>
+                        </div>
+                    </section>
+
+                    <section>
+                        <p style="padding-left: 20px;">
+                            您暂时还未中奖！
+                        </p>
+                    </section>
+                </div>
+            </div>
+            <div>
+
+            </div>
         </div>
 
         <div id="tree">
             <img src="img/tree-1.png"/>
         </div>
 
-        <div id="energe">能量值</div>
-        <div id="jqmeter-container"></div>    
+        <div id="energe">能量值<br/><span>&nbsp;&nbsp;&nbsp;20</span></div>
+        <div id="jqmeter-container"></div>
 
-        <button type="button" id="btn-zhuli">立即签到</button>
-        <button type="button" id="btn-start">中奖查询</button>
+        <a href="#" class="myButton" id="btn-zhuli">立即签到</a>
+        <a href="#" class="myButton" id="btn-start">中奖查询</a>
 
     </div>
 
     <script src="js/jquery-2.1.4.min.js"></script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-    <script src="//cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/jqmeter.min.js"></script>
+    <script src="js/js.js"></script>
 
 </body>
 

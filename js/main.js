@@ -3,6 +3,8 @@
  * 中秋节项目页面 内容页js内容
  */
 
+var open_id = JSON.parse(localStorage.getItem("userinfo")).openid;
+var energy;
 // 播放图标的函数设定
 !function () {
     var e = document.getElementsByClassName("audio")[0], a = function (e, a) {
@@ -22,14 +24,15 @@
 
 // 进度条的初始化
  $(function() {
+     energy = getEnergy();
      var screenwidth = document.documentElement.clientWidth; ;
      var screenheight = document.documentElement.clientHeight;
      if(screenheight < 510 || screenwidth <= 320){
          $('#jqmeter-container').jQMeter({
              goal:'1,000',
-             raised:'200',
+             raised:''+energe*10+'',
              orientation:'vertical',
-             width:'25px',
+             width:'20px',
              height:'120px',
              barColor: 'rgb(255, 26, 26)',
              displayTotal: false
@@ -37,16 +40,14 @@
      }else{
          $('#jqmeter-container').jQMeter({
              goal:'1,000',
-             raised:'200',
+             raised:''+energe*10+'',
              orientation:'vertical',
-             width:'30px',
+             width:'25px',
              height:'160px',
              barColor: 'rgb(255, 26, 26)',
              displayTotal: false
          });
      }
-
-
  })
 
 // 配置微信的JDK接口调用，返回值为对象，时间戳信息等等
@@ -112,39 +113,15 @@ wx.onMenuShareAppMessage({
     }
 });
 
-// 分享到QQ
-wx.onMenuShareQQ({
-    title: '', // 分享标
-    desc: '', // 分享描述
-    link: '', // 分享链接
-    imgUrl: '', // 分享图标
-    success: function () {
-        // 用户确认分享后执行的回调函数
-    },
-    cancel: function () {
-        // 用户取消分享后执行的回调函数
-    }
-});
 
-// 分享到QQ微博
-wx.onMenuShareWeibo({
-    title: '', // 分享标题
-    desc: '', // 分享描述
-    link: '', // 分享链接
-    imgUrl: '', // 分享图标
-    success: function () {
-        // 用户确认分享后执行的回调函数
-    },
-    cancel: function () {
-        // 用户取消分享后执行的回调函数
-    }
-});
 
 // 存储用户的openId 
 var userId;
-function  load() {  
-    var url = location.href();
+function  load() {
+    setTree(energy);
+    var code = checkCode();
 }
+
 
 // 立即签到
 function addEnergy(){
@@ -172,5 +149,42 @@ $("#tree").on("click",function(){
         $("#tree img").attr("src","img/tree-2.png");
     }
 );
+
+$("#btn-zhuli").on("click",function () {
+    // 调用addEnergy
+    showMsg('签到成功','center');
+})
+
+
+// 点击关闭按钮，关闭tab
+$("#tab-close").on("click",function () {
+    $("#tab-box").hide();
+})
+
+$(".intro").on("click",function () {
+    $("#tab-box").show();
+})
+
+$("#btn-start").on("click",function () {
+    // var flag = queryPrize(open_id);
+    var flag = 1;
+    if(flag === 0){
+        showMsg('很抱歉，您未能中奖！','center');
+    }else{
+        className = $(this).attr('id');
+        $('#dialogBg').fadeIn(300);
+        $('#dialog').removeAttr('class').addClass('animated '+className+'').fadeIn();
+    }
+})
+
+//关闭弹窗
+$('.claseDialogBtn').click(function(){
+    $('#dialogBg').fadeOut(300,function(){
+        $('#dialog').addClass('bounceOutUp').fadeOut();
+    });
+});
+
+
+
 
 
