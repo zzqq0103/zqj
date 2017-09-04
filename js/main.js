@@ -5,8 +5,8 @@
 
 var appId = 'wx0033267d6d347c18';
 var share_url = '';
-var open_id = JSON.parse(localStorage.getItem("userinfo")).openid;
-var headerImg = JSON.parse(localStorage.getItem("userinfo")).headimg;
+var open_id = JSON.parse(localStorage.getItem("userinfo")).openid?JSON.parse(localStorage.getItem("userinfo")).openid:'';
+var headerImg = JSON.parse(localStorage.getItem("userinfo")).headimg?JSON.parse(localStorage.getItem("userinfo")).headimg:'';
 var energy;
 // 播放图标的函数设定
 !function () {
@@ -142,8 +142,6 @@ wx.onMenuShareAppMessage({
     }
 });
 
-
-
 // 存储用户的openId 
 var userId;
 function  load() {
@@ -166,10 +164,26 @@ function addEnergy(){
         if(data.detail.flag){
             $("#energy_num").innerText(''+data.detail.energy+'');
             setjindutioa(data.detail.energy);
+            checkTree(data.detail.energy);
         }else{
             showMsg('签到失败','center');
         }
     })
+}
+
+
+function checkTree(energy) {
+    if(energy<25){
+        $("#tree img").attr("src","img/tree-1.png")
+    }else if(25<=energy<50){
+        $("#tree img").attr("src","img/tree-2.png")
+    }else if(50<=energy<75){
+        $("#tree img").attr("src","img/tree-3.png")
+    }else if(75<=energy<95){
+        $("#tree img").attr("src","img/tree-4.png")
+    }else{
+        $("#tree img").attr("src","img/tree-5.png");
+    }
 }
 
 // 获取用户信息
