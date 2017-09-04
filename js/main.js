@@ -3,17 +3,50 @@
  * 中秋节项目页面 内容页js内容
  */
 
+// 播放图标的函数设定
+!function () {
+    var e = document.getElementsByClassName("audio")[0], a = function (e, a) {
+        var t = new RegExp("(^| )" + a + "( |$)");
+        t.test(e.className) || (e.className = e.className.trim() + " " + a)
+    }, t = function (e, a) {
+        if (!e || 1 != e.nodeType)throw new Error("第一参数ele需要是一个DOM元素对象");
+        if ("string" != typeof a)throw new Error("第二参数必须为string类型");
+        var t = new RegExp("(?:^| )" + a + "(?: |$)", "g");
+        e.className = e.className.replace(t, "").trim()
+    };
+    e.onclick = function () {
+        var n = document.getElementById("media");
+        null !== n && (n.paused ? (n.play(), a(e, "rotate")) : (n.pause(), t(e, "rotate")))
+    }
+}();
+
 // 进度条的初始化
  $(function() {
-    $('#jqmeter-container').jQMeter({
-        goal:'1,000',
-        raised:'200',
-        orientation:'vertical',
-        width:'36px',
-        height:'150px',
-        barColor: 'rgb(255, 26, 26)',
-        displayTotal: true
-    });
+     var screenwidth = document.documentElement.clientWidth; ;
+     var screenheight = document.documentElement.clientHeight;
+     if(screenheight < 510 || screenwidth <= 320){
+         $('#jqmeter-container').jQMeter({
+             goal:'1,000',
+             raised:'200',
+             orientation:'vertical',
+             width:'25px',
+             height:'120px',
+             barColor: 'rgb(255, 26, 26)',
+             displayTotal: false
+         });
+     }else{
+         $('#jqmeter-container').jQMeter({
+             goal:'1,000',
+             raised:'200',
+             orientation:'vertical',
+             width:'30px',
+             height:'160px',
+             barColor: 'rgb(255, 26, 26)',
+             displayTotal: false
+         });
+     }
+
+
  })
 
 // 配置微信的JDK接口调用，返回值为对象，时间戳信息等等
@@ -133,5 +166,11 @@ function queryPrize(){
 function phoneSave() {
     
 }
+
+$("#tree").on("click",function(){
+
+        $("#tree img").attr("src","img/tree-2.png");
+    }
+);
 
 
