@@ -41,11 +41,10 @@ function getCode(){
 
 function getConnectWechat(){
     // 微信公众号唯一的appid
-    var appid = '';
-    var redirect_url = encodeURI(window.location.href);
+    var redirect_url = '10.205.27.140:8080/zqj/index.html';
     console.log(redirect_url);
     alert(window.location.href);
-    window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + appid + "&redirect_uri=" + redirect_url + "&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+    window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + appId + "&redirect_uri=" + redirect_url + "&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
     alert(window.location.href);
 }
 

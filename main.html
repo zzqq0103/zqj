@@ -28,8 +28,8 @@
                 </div>
                 <form action="" method="post" id="editForm">
                     <ul class="editInfos">
-                        <li><label><font color="#ff0000">* </font>姓名：<input type="text" name="" required value="" class="ipt" /></label></li>
-                        <li><label><font color="#ff0000">* </font>手机：<input type="text" name="" required value="" class="ipt" /></label></li>
+                        <li><label><font color="#ff0000">* </font>姓名：<input type="text" name="" required value="" class="ipt" id="username"/></label></li>
+                        <li><label><font color="#ff0000">* </font>手机：<input type="text" name="" required value="" class="ipt" id="phone"/></label></li>
                         <li id="tijiao">
                             <input type="submit" value="提交号码" class="submitBtn"/>
                         </li>
@@ -99,7 +99,7 @@
             <img src="img/tree-1.png"/>
         </div>
 
-        <div id="energe">能量值<br/><span>&nbsp;&nbsp;&nbsp;20</span></div>
+        <div id="energe">能量值<br/>&nbsp;&nbsp;&nbsp;<span id="energy_num">20</span></div>
         <div id="jqmeter-container"></div>
 
         <a href="#" class="myButton" id="btn-zhuli">立即签到</a>

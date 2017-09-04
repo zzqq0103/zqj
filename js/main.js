@@ -3,7 +3,10 @@
  * 中秋节项目页面 内容页js内容
  */
 
+var appId = 'wx0033267d6d347c18';
+var share_url = '';
 var open_id = JSON.parse(localStorage.getItem("userinfo")).openid;
+var headerImg = JSON.parse(localStorage.getItem("userinfo")).headimg;
 var energy;
 // 播放图标的函数设定
 !function () {
@@ -50,6 +53,32 @@ var energy;
      }
  })
 
+function setjindutioa(energy){
+    var screenwidth = document.documentElement.clientWidth; ;
+    var screenheight = document.documentElement.clientHeight;
+    if(screenheight < 510 || screenwidth <= 320){
+        $('#jqmeter-container').jQMeter({
+            goal:'1,000',
+            raised:''+energe*10+'',
+            orientation:'vertical',
+            width:'20px',
+            height:'120px',
+            barColor: 'rgb(255, 26, 26)',
+            displayTotal: false
+        });
+    }else{
+        $('#jqmeter-container').jQMeter({
+            goal:'1,000',
+            raised:''+energe*10+'',
+            orientation:'vertical',
+            width:'25px',
+            height:'160px',
+            barColor: 'rgb(255, 26, 26)',
+            displayTotal: false
+        });
+    }
+}
+
 // 配置微信的JDK接口调用，返回值为对象，时间戳信息等等
 function config_wechatJDK(){
     // 获取后端返回的签名signature字段
@@ -86,8 +115,8 @@ $(function(){
 
 // 分享到朋友圈
 wx.onMenuShareTimeline({
-    title: '', // 分享标题
-    link: '', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+    title: '中秋节快乐！', // 分享标题
+    link: share_url+'?'+'userId='+userId+"&headImg="+headerImg, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
     imgUrl: '', // 分享图标
     success: function () {
         // 用户确认分享后执行的回调函数
@@ -99,9 +128,9 @@ wx.onMenuShareTimeline({
 
 // 分享到朋友
 wx.onMenuShareAppMessage({
-    title: '', // 分享标题
-    desc: '', // 分享描述
-    link: '', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+    title: '中秋节快乐！', // 分享标题
+    desc: '为他助力', // 分享描述
+    link: share_url+'?'+'userId='+userId+"&headImg="+headerImg, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
     imgUrl: '', // 分享图标
     type: '', // 分享类型,music、video或link，不填默认为link
     dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
@@ -122,39 +151,63 @@ function  load() {
     var code = checkCode();
 }
 
-
 // 立即签到
 function addEnergy(){
-
+    $.ajax({
+        method:"POST",
+        url:"",
+        data:{
+            params:{
+                openId:open_id
+            }
+        },
+        dataType:'json'
+    }).done(function(data){
+        if(data.detail.flag){
+            $("#energy_num").innerText(''+data.detail.energy+'');
+            setjindutioa(data.detail.energy);
+        }else{
+            showMsg('签到失败','center');
+        }
+    })
 }
 
 // 获取用户信息
 function getUserInfo() {
-    
+
 }
 
 
 // 中奖查询
 function queryPrize(){
-
-}
-
-// 中奖人手机号码的存储 和 修改
-function phoneSave() {
-    
+    $.ajax({
+        method:"POST",
+        url:"",
+        data:{
+            params:{
+                openId:open_id
+            }
+        },
+        dataType:'json'
+    }).done(function(data){
+        if(data.detail.flag){
+            className = $("#btn-start").attr('id');
+            $('#dialogBg').fadeIn(300);
+            $('#dialog').removeAttr('class').addClass('animated '+className+'').fadeIn();
+        }else{
+            showMsg('很抱歉，您未能中奖！','center');
+        }
+    })
 }
 
 $("#tree").on("click",function(){
-
         $("#tree img").attr("src","img/tree-2.png");
     }
 );
 
 $("#btn-zhuli").on("click",function () {
-    // 调用addEnergy
-    showMsg('签到成功','center');
+    addEnergy();
 })
-
 
 // 点击关闭按钮，关闭tab
 $("#tab-close").on("click",function () {
@@ -166,15 +219,7 @@ $(".intro").on("click",function () {
 })
 
 $("#btn-start").on("click",function () {
-    // var flag = queryPrize(open_id);
-    var flag = 1;
-    if(flag === 0){
-        showMsg('很抱歉，您未能中奖！','center');
-    }else{
-        className = $(this).attr('id');
-        $('#dialogBg').fadeIn(300);
-        $('#dialog').removeAttr('class').addClass('animated '+className+'').fadeIn();
-    }
+    queryPrize(open_id);
 })
 
 //关闭弹窗
@@ -183,6 +228,33 @@ $('.claseDialogBtn').click(function(){
         $('#dialog').addClass('bounceOutUp').fadeOut();
     });
 });
+
+$(".submitBtn").on("click",function () {
+    var name = $("#username").value;
+    var phone = $("#phone").value;
+    if(!name || !phone ){
+        showMsg('请填写全部信息','center');
+        return;
+    }else{
+        localStorage.setItem("userPhone",phone);
+        localStorage.setItem("userName",name);
+        // 将 名称 姓名 电话 传给后台。
+        $.ajax({
+            method:"POST",
+            url:"",
+            data:{
+                params:{
+                    openid:open_id,
+                    phone:phone,
+                    name:name
+                }
+            },
+            dataType:'json'
+        }).done(function(data){
+            console.log("返回");
+        })
+    }
+})
 
 
 
