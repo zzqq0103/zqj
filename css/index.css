@@ -29,6 +29,7 @@ html,body,.container{
     left: 13%;
     height: 80%;
     opacity:0.80;
+    z-index:10;
 }
 
 #tree {

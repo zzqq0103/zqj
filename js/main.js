@@ -209,7 +209,7 @@ function addEnergy(){
 
 
 function checkTree(x){
-    k = parseInt(x / 20) + 1;
+    k = parseInt(x % 5) + 1;
     console.log(k);
     if(k == 6){
         $("#tree_image").attr("src","img/tree-" + 5 + ".png");
