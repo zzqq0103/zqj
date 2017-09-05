@@ -36,6 +36,7 @@ var energy = 0;
          $('#jqmeter-container').jQMeter({
              goal:'1,000',
              raised:''+energe*10+'',
+             // raised: '1000',
              orientation:'vertical',
              width:'20px',
              height:'120px',
@@ -46,6 +47,7 @@ var energy = 0;
          $('#jqmeter-container').jQMeter({
              goal:'1,000',
              raised:''+energe*10+'',
+             // raised: '1000',
              orientation:'vertical',
              width:'25px',
              height:'160px',
@@ -57,7 +59,7 @@ var energy = 0;
 
 function setjindutioa(energy){
      var allEnergy = energy*10;
-    var screenwidth = document.documentElement.clientWidth; ;
+    var screenwidth = document.documentElement.clientWidth;
     var screenheight = document.documentElement.clientHeight;
     if(screenheight < 510 || screenwidth <= 320){
         $('#jqmeter-container').jQMeter({
@@ -185,24 +187,35 @@ function addEnergy(){
 }
 
 
-function checkTree(x) {
-    console.log(x);
-    if(x<25){
-        $("#tree_image").attr("src","img/tree-1.png");
-        console.log(x);
-    }else if(25 < x < 45){
-        $("#tree_image").attr("src","img/tree-2.png");
-        console.log(x);
-    }else if(45 <= x < 70){
-        $("#tree_image").attr("src","img/tree-3.png");
-        console.log(x);
-    }else if(70 <= x < 95){
-        $("#tree_image").attr("src","img/tree-4.png");
-        console.log(x);
-    }else {
-        $("#tree_image").attr("src","img/tree-5.png");
-        console.log(x);
+// function checkTree(x) {
+//     console.log(x);
+//     if(x<25){
+//         $("#tree_image").attr("src","img/tree-1.png");
+//         console.log(x);
+//     }else if(25 < x < 45){
+//         $("#tree_image").attr("src","img/tree-2.png");
+//         console.log(x);
+//     }else if(45 <= x < 70){
+//         $("#tree_image").attr("src","img/tree-3.png");
+//         console.log(x);
+//     }else if(70 <= x < 95){
+//         $("#tree_image").attr("src","img/tree-4.png");
+//         console.log(x);
+//     }else {
+//         $("#tree_image").attr("src","img/tree-5.png");
+//         console.log(x);
+//     }
+// }
+
+
+function checkTree(x){
+    k = parseInt(x / 20) + 1;
+    console.log(k);
+    if(k == 6){
+        $("#tree_image").attr("src","img/tree-" + 5 + ".png");
+        return;
     }
+    $("#tree_image").attr("src","img/tree-" + k + ".png");
 }
 
 // 获取用户信息
