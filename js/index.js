@@ -22,7 +22,7 @@ var appId = 'wx0033267d6d347c18';
 var share_url = '';
 
 $(function(){
-    getCode();
+    // getCode();
 })
 
 // 获取code账号
@@ -141,7 +141,8 @@ $("#tab-close").on("click",function () {
 })
 
 $(".intro").on("click",function () {
-  $("#tab-box").show();
+    $("#tab-box").css("display","block");
+    $("#tab-box").show();
 })
 
 

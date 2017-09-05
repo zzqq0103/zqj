@@ -5,9 +5,11 @@
 
 var appId = 'wx0033267d6d347c18';
 var share_url = '';
-var open_id = JSON.parse(localStorage.getItem("userinfo")).openid?JSON.parse(localStorage.getItem("userinfo")).openid:'';
-var headerImg = JSON.parse(localStorage.getItem("userinfo")).headimg?JSON.parse(localStorage.getItem("userinfo")).headimg:'';
-var energy;
+// var open_id = JSON.parse(localStorage.getItem("userinfo")).openid?JSON.parse(localStorage.getItem("userinfo")).openid:'';
+var open_id = '123';
+// var headerImg = JSON.parse(localStorage.getItem("userinfo")).headimg?JSON.parse(localStorage.getItem("userinfo")).headimg:'';
+var headerImg = '1234';
+var energy = 0;
 // 播放图标的函数设定
 !function () {
     var e = document.getElementsByClassName("audio")[0], a = function (e, a) {
@@ -27,7 +29,7 @@ var energy;
 
 // 进度条的初始化
  $(function() {
-     energy = getEnergy();
+     // energy = getEnergy();
      var screenwidth = document.documentElement.clientWidth; ;
      var screenheight = document.documentElement.clientHeight;
      if(screenheight < 510 || screenwidth <= 320){
@@ -54,27 +56,30 @@ var energy;
  })
 
 function setjindutioa(energy){
+     var allEnergy = energy*10;
     var screenwidth = document.documentElement.clientWidth; ;
     var screenheight = document.documentElement.clientHeight;
     if(screenheight < 510 || screenwidth <= 320){
         $('#jqmeter-container').jQMeter({
-            goal:'1,000',
-            raised:''+energe*10+'',
+            goal:'$1,000',
+            raised:'%'+allEnergy+'',
             orientation:'vertical',
             width:'20px',
             height:'120px',
             barColor: 'rgb(255, 26, 26)',
-            displayTotal: false
+            displayTotal: false,
+            animationSpeed: 500
         });
     }else{
         $('#jqmeter-container').jQMeter({
             goal:'1,000',
-            raised:''+energe*10+'',
+            raised:''+allEnergy+'',
             orientation:'vertical',
             width:'25px',
             height:'160px',
             barColor: 'rgb(255, 26, 26)',
-            displayTotal: false
+            displayTotal: false,
+            animationSpeed: 500
         });
     }
 }
@@ -101,9 +106,9 @@ $(function(){
     wx.config({
         debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
         appId: '', // 必填，公众号的唯一标识
-        timestamp: configData.timestamp, // 必填，生成签名的时间戳
-        nonceStr: configData.nonceStr, // 必填，生成签名的随机串
-        signature: configData.signature,// 必填，签名，见附录1
+        // timestamp: configData.timestamp, // 必填，生成签名的时间戳
+        // nonceStr: configData.nonceStr, // 必填，生成签名的随机串
+        // signature: configData.signature,// 必填，签名，见附录1
         jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     });
     // 通过ready接口处理成功验证
@@ -145,44 +150,57 @@ wx.onMenuShareAppMessage({
 // 存储用户的openId 
 var userId;
 function  load() {
-    setTree(energy);
-    var code = checkCode();
+    // setTree(energy);
+    // var code = checkCode();
 }
 
 // 立即签到
 function addEnergy(){
-    $.ajax({
-        method:"POST",
-        url:"",
-        data:{
-            params:{
-                openId:open_id
-            }
-        },
-        dataType:'json'
-    }).done(function(data){
-        if(data.detail.flag){
-            $("#energy_num").innerText(''+data.detail.energy+'');
-            setjindutioa(data.detail.energy);
-            checkTree(data.detail.energy);
-        }else{
-            showMsg('签到失败','center');
-        }
-    })
+    // $.ajax({
+    //     method:"POST",
+    //     url:"",
+    //     data:{
+    //         params:{
+    //             openId:open_id
+    //         }
+    //     },
+    //     dataType:'json'
+    // }).done(function(data){
+    //     if(data.detail.flag){
+    //         $("#energy_num").innerText(''+data.detail.energy+'');
+    //         setjindutioa(data.detail.energy);
+    //         checkTree(data.detail.energy);
+    //     }else{
+    //         showMsg('签到失败','center');
+    //     }
+    // })
+    energy = energy + 1;
+    if(energy >100){
+        showMsg('您已经完成任务！','center');
+    }else{
+        $("#energy_num").text(''+energy+'');
+        checkTree(energy);
+        setjindutioa(energy);
+    }
 }
 
 
-function checkTree(energy) {
-    if(energy<25){
-        $("#tree img").attr("src","img/tree-1.png")
-    }else if(25<=energy<50){
-        $("#tree img").attr("src","img/tree-2.png")
-    }else if(50<=energy<75){
-        $("#tree img").attr("src","img/tree-3.png")
-    }else if(75<=energy<95){
-        $("#tree img").attr("src","img/tree-4.png")
-    }else{
-        $("#tree img").attr("src","img/tree-5.png");
+function checkTree(x) {
+    console.log(x);
+    if(x<25){
+        $("#tree_image").attr("src","img/tree-1.png");
+    }else if(25 < x < 45){
+        $("#tree_image").attr("src","img/tree-2.png");
+        console.log('2');
+    }else if(45 <= x < 70){
+        $("#tree_image").attr("src","img/tree-3.png");
+        console.log('3');
+    }else if(70 <= x < 95){
+        $("#tree_image").attr("src","img/tree-4.png");
+        console.log('4');
+    }else {
+        $("#tree_image").attr("src","img/tree-5.png");
+        console.log('5');
     }
 }
 
@@ -213,11 +231,11 @@ function queryPrize(){
         }
     })
 }
-
-$("#tree").on("click",function(){
-        $("#tree img").attr("src","img/tree-2.png");
-    }
-);
+//
+// $("#tree").on("click",function(){
+//         $("#tree img").attr("src","img/tree-2.png");
+//     }
+// );
 
 $("#btn-zhuli").on("click",function () {
     addEnergy();
@@ -229,11 +247,15 @@ $("#tab-close").on("click",function () {
 })
 
 $(".intro").on("click",function () {
+    $("#tab-box").css("display","block");
     $("#tab-box").show();
 })
 
 $("#btn-start").on("click",function () {
-    queryPrize(open_id);
+    // queryPrize(open_id);
+    className = $("#btn-start").attr('id');
+    $('#dialogBg').fadeIn(300);
+    $('#dialog').removeAttr('class').addClass('animated '+className+'').fadeIn();
 })
 
 //关闭弹窗

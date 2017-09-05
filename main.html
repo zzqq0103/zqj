@@ -16,8 +16,11 @@
 
 <body onload="load()">
     <!-- 背景 div-->
-    <div class="container" id="container-bg">
+    <div class="container" id="container-bg" style="background-image: url(img/back.png)">
 
+        <div id="lantern" style="background-image: url(img/latern.png)">
+
+        </div>
 
         <div class="box">
             <div id="dialogBg"></div>
@@ -49,7 +52,7 @@
             <span>游戏介绍</span>
         </div>
 
-        <div id="tab-box" style="display:block;">
+        <div id="tab-box" style="display:none;">
             <div class="tabs">
                 <input type="radio" id="tab1" name="tab-control" checked>
                 <input type="radio" id="tab2" name="tab-control">
@@ -96,10 +99,10 @@
         </div>
 
         <div id="tree">
-            <img src="img/tree-1.png"/>
+            <img id="tree_image" src="img/tree-1.png"/>
         </div>
 
-        <div id="energe">能量值<br/>&nbsp;&nbsp;&nbsp;<span id="energy_num">20</span></div>
+        <div id="energe">能量值<br/>&nbsp;&nbsp;&nbsp;<span id="energy_num">0</span></div>
         <div id="jqmeter-container"></div>
 
         <a href="#" class="myButton" id="btn-zhuli">立即签到</a>
