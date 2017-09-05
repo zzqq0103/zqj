@@ -189,18 +189,19 @@ function checkTree(x) {
     console.log(x);
     if(x<25){
         $("#tree_image").attr("src","img/tree-1.png");
+        console.log(x);
     }else if(25 < x < 45){
         $("#tree_image").attr("src","img/tree-2.png");
-        console.log('2');
+        console.log(x);
     }else if(45 <= x < 70){
         $("#tree_image").attr("src","img/tree-3.png");
-        console.log('3');
+        console.log(x);
     }else if(70 <= x < 95){
         $("#tree_image").attr("src","img/tree-4.png");
-        console.log('4');
+        console.log(x);
     }else {
         $("#tree_image").attr("src","img/tree-5.png");
-        console.log('5');
+        console.log(x);
     }
 }
 

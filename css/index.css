@@ -730,7 +730,7 @@ only screen and (device-width: 375px) and (-webkit-min-device-pixel-ratio: 3){
     font-size: 1em;
 }
 #dialog{
-    height:200px !important;
+    height:265px !important;
 }
 
 #lantern{
